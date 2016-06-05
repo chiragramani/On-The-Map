@@ -55,12 +55,12 @@ extension PClient
     
     struct parameterKeys {
         static let Limit = "limit"
-        static let OrderDescending = "-order"
+        static let Order = "order"
     }
     
    
     struct paramaterValues {
-        static let UpdatedAt = "updatedAt"
+        static let UpdatedAt = "updatedAt"  
         static let ReturnObjectsCount = "100"
     }
     

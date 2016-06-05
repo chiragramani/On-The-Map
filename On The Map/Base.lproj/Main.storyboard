@@ -230,7 +230,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Vmy-wa-69s">
-                                        <rect key="frame" x="295" y="96" width="37" height="37"/>
+                                        <rect key="frame" x="281.5" y="57.5" width="37" height="37"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -238,8 +238,6 @@
                                     <constraint firstItem="N7j-Gd-cGC" firstAttribute="leading" secondItem="5rW-ZN-OeC" secondAttribute="leading" constant="38" id="6MB-98-2yw"/>
                                     <constraint firstItem="N7j-Gd-cGC" firstAttribute="centerY" secondItem="5rW-ZN-OeC" secondAttribute="centerY" id="TX6-NY-BAe"/>
                                     <constraint firstItem="N7j-Gd-cGC" firstAttribute="centerX" secondItem="5rW-ZN-OeC" secondAttribute="centerX" id="VcC-Qd-uao"/>
-                                    <constraint firstItem="Vmy-wa-69s" firstAttribute="leading" secondItem="5rW-ZN-OeC" secondAttribute="leading" constant="295" id="X9e-IT-vN0"/>
-                                    <constraint firstItem="Vmy-wa-69s" firstAttribute="top" secondItem="5rW-ZN-OeC" secondAttribute="top" constant="96" id="jml-xj-a6S"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g9Y-Ki-Ed9">
@@ -296,6 +294,7 @@
                             <constraint firstItem="5rW-ZN-OeC" firstAttribute="trailing" secondItem="KB0-yD-QLq" secondAttribute="trailing" id="KTm-Sv-e6C"/>
                             <constraint firstItem="5rW-ZN-OeC" firstAttribute="trailing" secondItem="g9Y-Ki-Ed9" secondAttribute="trailing" id="M4o-lm-h6U"/>
                             <constraint firstAttribute="bottom" secondItem="5rW-ZN-OeC" secondAttribute="bottom" constant="197" id="NjI-RF-BQ9"/>
+                            <constraint firstItem="Vmy-wa-69s" firstAttribute="centerX" secondItem="C8w-wp-Deg" secondAttribute="centerX" id="QTc-DW-4om"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aRR-Ek-qbE" secondAttribute="trailing" constant="-20" id="S7U-eh-869"/>
                             <constraint firstItem="5rW-ZN-OeC" firstAttribute="leading" secondItem="g9Y-Ki-Ed9" secondAttribute="leading" id="c2N-ce-yRE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="g9Y-Ki-Ed9" secondAttribute="trailing" constant="-20" id="cZj-3I-2iI"/>
@@ -303,6 +302,7 @@
                             <constraint firstItem="5rW-ZN-OeC" firstAttribute="leading" secondItem="KB0-yD-QLq" secondAttribute="leading" id="eGM-zK-g2C"/>
                             <constraint firstItem="aRR-Ek-qbE" firstAttribute="leading" secondItem="C8w-wp-Deg" secondAttribute="leadingMargin" constant="-20" id="evV-hl-PWk"/>
                             <constraint firstItem="kUj-cg-dDC" firstAttribute="top" secondItem="g9Y-Ki-Ed9" secondAttribute="bottom" id="p6v-tH-cBw"/>
+                            <constraint firstItem="Vmy-wa-69s" firstAttribute="centerY" secondItem="C8w-wp-Deg" secondAttribute="centerY" id="q1o-8x-4Te"/>
                             <constraint firstItem="kUj-cg-dDC" firstAttribute="top" secondItem="aRR-Ek-qbE" secondAttribute="bottom" id="u4W-S3-af2"/>
                             <constraint firstItem="g9Y-Ki-Ed9" firstAttribute="top" secondItem="5rW-ZN-OeC" secondAttribute="bottom" id="ujS-h6-4lf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KB0-yD-QLq" secondAttribute="trailing" constant="-20" id="vns-h6-Qaj"/>

@@ -16,7 +16,7 @@ extension PClient
     func getLocationInfoFromParse(completionHandlerForGetLocationFromParse:(success: Bool, errorString: String?) -> Void) {
         
         let parameters = [PClient.parameterKeys.Limit: PClient.paramaterValues.ReturnObjectsCount,
-                          PClient.parameterKeys.OrderDescending: PClient.paramaterValues.UpdatedAt]
+                          PClient.parameterKeys.Order: "-\(PClient.paramaterValues.UpdatedAt)"]
         
         taskForGETMethod(PClient.Methods.Locations, parameters: parameters) { (results, error) in
             
