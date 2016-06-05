@@ -8,12 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		4633A7D01CFC6424007E359D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633A7CF1CFC6424007E359D /* AppDelegate.swift */; };
-		4633A7D21CFC6424007E359D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633A7D11CFC6424007E359D /* ViewController.swift */; };
+		4633A7D21CFC6424007E359D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633A7D11CFC6424007E359D /* LoginViewController.swift */; };
 		4633A7D51CFC6424007E359D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4633A7D31CFC6424007E359D /* Main.storyboard */; };
 		4633A7D71CFC6424007E359D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4633A7D61CFC6424007E359D /* Assets.xcassets */; };
 		4633A7DA1CFC6424007E359D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4633A7D81CFC6424007E359D /* LaunchScreen.storyboard */; };
 		4633A7E51CFC6424007E359D /* On_The_MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633A7E41CFC6424007E359D /* On_The_MapTests.swift */; };
 		4633A7F01CFC6424007E359D /* On_The_MapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633A7EF1CFC6424007E359D /* On_The_MapUITests.swift */; };
+		4633A7FE1CFC6786007E359D /* udacity_share-46db4b8faf075a5af5a1070a7fa0ad3639783609ff45f447e4ea467fe3aa9d32.png in Resources */ = {isa = PBXBuildFile; fileRef = 4633A7FD1CFC6786007E359D /* udacity_share-46db4b8faf075a5af5a1070a7fa0ad3639783609ff45f447e4ea467fe3aa9d32.png */; };
+		4633A8001CFC8F2C007E359D /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633A7FF1CFC8F2C007E359D /* GCDBlackBox.swift */; };
+		4633A83C1D017C29007E359D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633A83B1D017C29007E359D /* MapViewController.swift */; };
+		4633A83E1D017CF9007E359D /* MapTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633A83D1D017CF9007E359D /* MapTableViewController.swift */; };
+		4633A8401D0185EE007E359D /* FindOnTheMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633A83F1D0185EE007E359D /* FindOnTheMapViewController.swift */; };
+		4633A8481D030F91007E359D /* UConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633A8471D030F91007E359D /* UConstants.swift */; };
+		4633A84A1D030F9D007E359D /* UConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633A8491D030F9D007E359D /* UConvenience.swift */; };
+		4633A84C1D030FAE007E359D /* UClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633A84B1D030FAE007E359D /* UClient.swift */; };
+		4633A84F1D034217007E359D /* PConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633A84E1D034217007E359D /* PConstants.swift */; };
+		4633A8511D034224007E359D /* PConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633A8501D034224007E359D /* PConvenience.swift */; };
+		4633A8531D034231007E359D /* PClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633A8521D034231007E359D /* PClient.swift */; };
+		4633A8551D035C05007E359D /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633A8541D035C05007E359D /* InfoModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +48,7 @@
 /* Begin PBXFileReference section */
 		4633A7CC1CFC6424007E359D /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4633A7CF1CFC6424007E359D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4633A7D11CFC6424007E359D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4633A7D11CFC6424007E359D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4633A7D41CFC6424007E359D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4633A7D61CFC6424007E359D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4633A7D91CFC6424007E359D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +59,18 @@
 		4633A7EB1CFC6424007E359D /* On The MapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "On The MapUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4633A7EF1CFC6424007E359D /* On_The_MapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = On_The_MapUITests.swift; sourceTree = "<group>"; };
 		4633A7F11CFC6424007E359D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4633A7FD1CFC6786007E359D /* udacity_share-46db4b8faf075a5af5a1070a7fa0ad3639783609ff45f447e4ea467fe3aa9d32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "udacity_share-46db4b8faf075a5af5a1070a7fa0ad3639783609ff45f447e4ea467fe3aa9d32.png"; sourceTree = "<group>"; };
+		4633A7FF1CFC8F2C007E359D /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
+		4633A83B1D017C29007E359D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		4633A83D1D017CF9007E359D /* MapTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTableViewController.swift; sourceTree = "<group>"; };
+		4633A83F1D0185EE007E359D /* FindOnTheMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindOnTheMapViewController.swift; sourceTree = "<group>"; };
+		4633A8471D030F91007E359D /* UConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UConstants.swift; sourceTree = "<group>"; };
+		4633A8491D030F9D007E359D /* UConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UConvenience.swift; sourceTree = "<group>"; };
+		4633A84B1D030FAE007E359D /* UClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UClient.swift; sourceTree = "<group>"; };
+		4633A84E1D034217007E359D /* PConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PConstants.swift; sourceTree = "<group>"; };
+		4633A8501D034224007E359D /* PConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PConvenience.swift; sourceTree = "<group>"; };
+		4633A8521D034231007E359D /* PClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PClient.swift; sourceTree = "<group>"; };
+		4633A8541D035C05007E359D /* InfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +122,14 @@
 			isa = PBXGroup;
 			children = (
 				4633A7CF1CFC6424007E359D /* AppDelegate.swift */,
-				4633A7D11CFC6424007E359D /* ViewController.swift */,
 				4633A7D31CFC6424007E359D /* Main.storyboard */,
+				4633A7FF1CFC8F2C007E359D /* GCDBlackBox.swift */,
 				4633A7D61CFC6424007E359D /* Assets.xcassets */,
 				4633A7D81CFC6424007E359D /* LaunchScreen.storyboard */,
+				4633A7FD1CFC6786007E359D /* udacity_share-46db4b8faf075a5af5a1070a7fa0ad3639783609ff45f447e4ea467fe3aa9d32.png */,
 				4633A7DB1CFC6424007E359D /* Info.plist */,
+				4633A84D1D031790007E359D /* Controllers */,
+				4633A8431D030F2B007E359D /* Model */,
 			);
 			path = "On The Map";
 			sourceTree = "<group>";
@@ -123,6 +150,55 @@
 				4633A7F11CFC6424007E359D /* Info.plist */,
 			);
 			path = "On The MapUITests";
+			sourceTree = "<group>";
+		};
+		4633A8431D030F2B007E359D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4633A8441D030F42007E359D /* Clients */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4633A8441D030F42007E359D /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				4633A8461D030F4E007E359D /* Udacity */,
+				4633A8451D030F48007E359D /* Parse */,
+			);
+			name = Clients;
+			sourceTree = "<group>";
+		};
+		4633A8451D030F48007E359D /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				4633A84E1D034217007E359D /* PConstants.swift */,
+				4633A8501D034224007E359D /* PConvenience.swift */,
+				4633A8521D034231007E359D /* PClient.swift */,
+				4633A8541D035C05007E359D /* InfoModel.swift */,
+			);
+			name = Parse;
+			sourceTree = "<group>";
+		};
+		4633A8461D030F4E007E359D /* Udacity */ = {
+			isa = PBXGroup;
+			children = (
+				4633A8471D030F91007E359D /* UConstants.swift */,
+				4633A8491D030F9D007E359D /* UConvenience.swift */,
+				4633A84B1D030FAE007E359D /* UClient.swift */,
+			);
+			name = Udacity;
+			sourceTree = "<group>";
+		};
+		4633A84D1D031790007E359D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4633A7D11CFC6424007E359D /* LoginViewController.swift */,
+				4633A83B1D017C29007E359D /* MapViewController.swift */,
+				4633A83D1D017CF9007E359D /* MapTableViewController.swift */,
+				4633A83F1D0185EE007E359D /* FindOnTheMapViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +308,7 @@
 				4633A7DA1CFC6424007E359D /* LaunchScreen.storyboard in Resources */,
 				4633A7D71CFC6424007E359D /* Assets.xcassets in Resources */,
 				4633A7D51CFC6424007E359D /* Main.storyboard in Resources */,
+				4633A7FE1CFC6786007E359D /* udacity_share-46db4b8faf075a5af5a1070a7fa0ad3639783609ff45f447e4ea467fe3aa9d32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +333,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4633A7D21CFC6424007E359D /* ViewController.swift in Sources */,
+				4633A8401D0185EE007E359D /* FindOnTheMapViewController.swift in Sources */,
+				4633A8531D034231007E359D /* PClient.swift in Sources */,
+				4633A7D21CFC6424007E359D /* LoginViewController.swift in Sources */,
+				4633A8001CFC8F2C007E359D /* GCDBlackBox.swift in Sources */,
 				4633A7D01CFC6424007E359D /* AppDelegate.swift in Sources */,
+				4633A83E1D017CF9007E359D /* MapTableViewController.swift in Sources */,
+				4633A8511D034224007E359D /* PConvenience.swift in Sources */,
+				4633A83C1D017C29007E359D /* MapViewController.swift in Sources */,
+				4633A84A1D030F9D007E359D /* UConvenience.swift in Sources */,
+				4633A84F1D034217007E359D /* PConstants.swift in Sources */,
+				4633A8551D035C05007E359D /* InfoModel.swift in Sources */,
+				4633A84C1D030FAE007E359D /* UClient.swift in Sources */,
+				4633A8481D030F91007E359D /* UConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +493,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "self.On-The-Map";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -416,6 +505,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "self.On-The-Map";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -484,6 +574,7 @@
 				4633A7F61CFC6424007E359D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4633A7F71CFC6424007E359D /* Build configuration list for PBXNativeTarget "On The MapTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +583,7 @@
 				4633A7F91CFC6424007E359D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4633A7FA1CFC6424007E359D /* Build configuration list for PBXNativeTarget "On The MapUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +592,7 @@
 				4633A7FC1CFC6424007E359D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
