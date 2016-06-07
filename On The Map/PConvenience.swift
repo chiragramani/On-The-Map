@@ -29,8 +29,8 @@ extension PClient
                 
                 
                 if let results = results[PClient.JSONResponseKeys.results] as? [[String: AnyObject]] {
-                    let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                    delegate.locations = InfoModel.buildInfoModel(results)
+                    
+                    LocationsData.sharedInstance().locations = InfoModel.buildInfoModel(results)
                     completionHandlerForGetLocationFromParse(success: true, errorString: nil)
                 } else {
                     completionHandlerForGetLocationFromParse(success: false, errorString: "Could not parse data")

@@ -193,8 +193,7 @@ class FindOnTheMapViewController:UIViewController,MKMapViewDelegate,UITextFieldD
                     }
                     else
                     {
-                        let viewController=self.storyboard?.instantiateViewControllerWithIdentifier("TabBarVC") as! UITabBarController
-                        self.presentViewController(viewController, animated: true, completion: nil)
+                        self.dismissViewControllerAnimated(true, completion: nil)
                     }
                     
                 }}  }
@@ -210,8 +209,7 @@ class FindOnTheMapViewController:UIViewController,MKMapViewDelegate,UITextFieldD
                     }
                     else
                     {
-                        let viewController=self.storyboard?.instantiateViewControllerWithIdentifier("TabBarVC") as! UITabBarController
-                        self.presentViewController(viewController, animated: true, completion: nil)
+                        self.dismissViewControllerAnimated(true, completion: nil)
                     }
                 }}
         }

@@ -17,7 +17,7 @@ class MapViewController:UIViewController,MKMapViewDelegate
     
     @IBOutlet weak var myMapView: MKMapView!
     
-    let appDelegate=UIApplication.sharedApplication().delegate as! AppDelegate
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +46,7 @@ class MapViewController:UIViewController,MKMapViewDelegate
     
     func loadDataToMap() {
         var annotations = [MKPointAnnotation]()
-        for locationInfo in appDelegate.locations {
+        for locationInfo in LocationsData.sharedInstance().locations {
             let lat = CLLocationDegrees(locationInfo.latitude)
             let long = CLLocationDegrees(locationInfo.longitude)
             let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
@@ -153,8 +153,7 @@ class MapViewController:UIViewController,MKMapViewDelegate
                 if success {
                     self.activityViewIndicator.hidden=true
                     self.activityViewIndicator.stopAnimating()
-                    let nextVC=self.storyboard?.instantiateViewControllerWithIdentifier("loginVC") as! LoginViewController
-                    self.presentViewController(nextVC, animated: true, completion: nil)
+                    self.dismissViewControllerAnimated(true, completion: nil)
                     
                     
                 } else {

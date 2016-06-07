@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		460EC0A81D074CA00002D404 /* LocationsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460EC0A71D074CA00002D404 /* LocationsData.swift */; };
 		4633A7D01CFC6424007E359D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633A7CF1CFC6424007E359D /* AppDelegate.swift */; };
 		4633A7D21CFC6424007E359D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633A7D11CFC6424007E359D /* LoginViewController.swift */; };
 		4633A7D51CFC6424007E359D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4633A7D31CFC6424007E359D /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		460EC0A71D074CA00002D404 /* LocationsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsData.swift; sourceTree = "<group>"; };
 		4633A7CC1CFC6424007E359D /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4633A7CF1CFC6424007E359D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4633A7D11CFC6424007E359D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				4633A8501D034224007E359D /* PConvenience.swift */,
 				4633A8521D034231007E359D /* PClient.swift */,
 				4633A8541D035C05007E359D /* InfoModel.swift */,
+				460EC0A71D074CA00002D404 /* LocationsData.swift */,
 			);
 			name = Parse;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				460EC0A81D074CA00002D404 /* LocationsData.swift in Sources */,
 				4633A8401D0185EE007E359D /* FindOnTheMapViewController.swift in Sources */,
 				4633A8531D034231007E359D /* PClient.swift in Sources */,
 				4633A7D21CFC6424007E359D /* LoginViewController.swift in Sources */,

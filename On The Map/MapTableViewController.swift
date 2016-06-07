@@ -22,13 +22,14 @@ class MapTableViewController:UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return appDelegate.locations.count
+        return LocationsData.sharedInstance().locations.count
+        
         
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell=myTableView.dequeueReusableCellWithIdentifier("CellId", forIndexPath: indexPath)
         
-        let locationInfo = appDelegate.locations[indexPath.row]
+        let locationInfo = LocationsData.sharedInstance().locations[indexPath.row]
         
         cell.textLabel?.text = locationInfo.firstName + " " + locationInfo.lastName
         cell.detailTextLabel?.text = locationInfo.mediaURL
@@ -87,7 +88,7 @@ class MapTableViewController:UIViewController,UITableViewDelegate,UITableViewDat
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let locationInfo = appDelegate.locations[indexPath.row]
+        let locationInfo = LocationsData.sharedInstance().locations[indexPath.row]
         let url=NSURL(string: locationInfo.mediaURL)
         if(!UIApplication.sharedApplication().openURL(url!))
         {
@@ -146,8 +147,7 @@ class MapTableViewController:UIViewController,UITableViewDelegate,UITableViewDat
                 if success {
                     self.activityViewIndicator.hidden=true
                     self.activityViewIndicator.stopAnimating()
-                    let nextVC=self.storyboard?.instantiateViewControllerWithIdentifier("loginVC") as! LoginViewController
-                    self.presentViewController(nextVC, animated: true, completion: nil)
+                    self.dismissViewControllerAnimated(true, completion: nil)
                     
                     
                 } else {
