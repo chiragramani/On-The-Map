@@ -15,18 +15,20 @@ class MapTableViewController:UIViewController,UITableViewDelegate,UITableViewDat
     
     @IBOutlet weak var activityViewIndicator: UIActivityIndicatorView!
     @IBOutlet weak var myTableView: UITableView!
+    let appDelegate=UIApplication.sharedApplication().delegate as! AppDelegate
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return PClient.sharedInstance().locations.count
+        return appDelegate.locations.count
+        
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell=myTableView.dequeueReusableCellWithIdentifier("CellId", forIndexPath: indexPath)
         
-        let locationInfo = PClient.sharedInstance().locations[indexPath.row]
+        let locationInfo = appDelegate.locations[indexPath.row]
         
         cell.textLabel?.text = locationInfo.firstName + " " + locationInfo.lastName
         cell.detailTextLabel?.text = locationInfo.mediaURL
@@ -68,7 +70,12 @@ class MapTableViewController:UIViewController,UITableViewDelegate,UITableViewDat
                         }))
                         self.presentViewController(alert, animated: true, completion: nil)
                         
-                    } 
+                    }
+                    else{
+                        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .Alert)
+                        alert.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    }
                 }
             }
             
@@ -80,7 +87,7 @@ class MapTableViewController:UIViewController,UITableViewDelegate,UITableViewDat
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let locationInfo = PClient.sharedInstance().locations[indexPath.row]
+        let locationInfo = appDelegate.locations[indexPath.row]
         let url=NSURL(string: locationInfo.mediaURL)
         if(!UIApplication.sharedApplication().openURL(url!))
         {
@@ -116,7 +123,7 @@ class MapTableViewController:UIViewController,UITableViewDelegate,UITableViewDat
                         self.activityViewIndicator.stopAnimating()
                         self.activityViewIndicator.hidden=true
                         
-                        let alert = UIAlertController(title: "", message: "Can not load  data", preferredStyle: .Alert)
+                        let alert = UIAlertController(title: "", message: error, preferredStyle: .Alert)
                         alert.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
                         self.presentViewController(alert, animated: true, completion: nil)
                     }

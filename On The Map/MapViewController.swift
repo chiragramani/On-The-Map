@@ -17,6 +17,7 @@ class MapViewController:UIViewController,MKMapViewDelegate
     
     @IBOutlet weak var myMapView: MKMapView!
     
+    let appDelegate=UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +46,7 @@ class MapViewController:UIViewController,MKMapViewDelegate
     
     func loadDataToMap() {
         var annotations = [MKPointAnnotation]()
-        for locationInfo in PClient.sharedInstance().locations {
+        for locationInfo in appDelegate.locations {
             let lat = CLLocationDegrees(locationInfo.latitude)
             let long = CLLocationDegrees(locationInfo.longitude)
             let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
@@ -90,7 +91,12 @@ class MapViewController:UIViewController,MKMapViewDelegate
                         }))
                         self.presentViewController(alert, animated: true, completion: nil)
                         
-                    } 
+                    }
+                    else{
+                        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .Alert)
+                        alert.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    }
                 }
             }
         }
@@ -124,7 +130,7 @@ class MapViewController:UIViewController,MKMapViewDelegate
                         self.activityViewIndicator.stopAnimating()
                         self.activityViewIndicator.hidden=true
                         self.myMapView.alpha=CGFloat(1.0)
-                        let ac = UIAlertController(title: "", message: "Could not load  data", preferredStyle: .Alert)
+                        let ac = UIAlertController(title: "", message: error, preferredStyle: .Alert)
                         ac.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
                         self.presentViewController(ac, animated: true, completion: nil)
                     }

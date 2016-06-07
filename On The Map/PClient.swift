@@ -15,7 +15,7 @@ class PClient:NSObject
     var latitude: Double? = nil
     var longitude: Double? = nil
     var objectId: String? = nil
-    var locations: [InfoModel] = [InfoModel]()
+    
     
     // Shared session
     var session = NSURLSession.sharedSession()
@@ -33,20 +33,35 @@ class PClient:NSObject
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
             
             func sendError(error: String) {
-                print(error)
+                
                 let userInfo = [NSLocalizedDescriptionKey: error]
                 completionHandlerForGet(result: nil, error: NSError(domain: "taskForGetMethod", code: 1, userInfo: userInfo))
             }
             
             // GUARD: Was there an error?
             guard (error == nil) else {
-                sendError("There was an error with your request: \(error)")
+                if(error!.code==(-1009))
+                {
+                    sendError("The Internet connection appears to be offline")
+                }
+                else
+                {
+                    sendError("There was an error with your request: \(error)")
+                }
                 return
             }
+
             
             // GUARD: Did we get a successful 2XX response?
             guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
-                sendError("Your request returned a status code other than 2xx!")
+                if (response as? NSHTTPURLResponse)?.statusCode == 401
+                {
+                    sendError("Unauthorized!")
+                }
+                else
+                {
+                    sendError("Invalid Request!")
+                }
                 return
             }
             
@@ -90,15 +105,31 @@ class PClient:NSObject
             
             // GUARD: Was there an error?
             guard (error == nil) else {
-                sendError("There was an error with your request: \(error)")
+                if(error!.code==(-1009))
+                {
+                    sendError("The Internet connection appears to be offline")
+                }
+                else
+                {
+                    sendError("There was an error with your request: \(error)")
+                }
                 return
             }
+
             
             // GUARD: Did we get a successful 2XX response?
             guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
-                sendError("Your request returned a status code other than 2xx!")
+                if (response as? NSHTTPURLResponse)?.statusCode == 401
+                {
+                    sendError("Unauthorized!")
+                }
+                else
+                {
+                    sendError("Invalid Request!")
+                }
                 return
             }
+            
             
             // GURAD: Was there any data returned?
             guard let data = data else {
@@ -136,19 +167,35 @@ class PClient:NSObject
                 completionHandlerForPUT(result: nil, error: NSError(domain: "taskForPOSTMethod", code: 1, userInfo: userInfo))
                 
             }
-            print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+            
             
             // GUARD: Was there an error?
             guard (error == nil) else {
-                sendError("There was an error with your request: \(error)")
+                if(error!.code==(-1009))
+                {
+                    sendError("The Internet connection appears to be offline")
+                }
+                else
+                {
+                    sendError("There was an error with your request: \(error)")
+                }
                 return
             }
+
             
             // GUARD: Did we get a successful 2XX response?
             guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
-                sendError("Your request returned a status code other than 2xx!")
+                if (response as? NSHTTPURLResponse)?.statusCode == 401
+                {
+                    sendError("Unauthorized!")
+                }
+                else
+                {
+                    sendError("Invalid Request!")
+                }
                 return
             }
+            
             
             // GURAD: Was there any data returned?
             guard let data = data else {
@@ -184,12 +231,13 @@ class PClient:NSObject
         var parsedResult: AnyObject!
         do {
             parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
-        } catch {
+        }
+        catch {
             let userInfo = [NSLocalizedDescriptionKey: "Could not parse the data as JSON: '\(data)'"]
             completionHandlerForConvertData(result: nil, error: NSError(domain: "converDataWithCompletionHandler", code: 1, userInfo: userInfo))
         }
-        
         completionHandlerForConvertData(result: parsedResult, error: nil)
+        
     }
     
     // Create a URL from parameters
@@ -207,6 +255,7 @@ class PClient:NSObject
         }
         print(components.URL!)
         return components.URL!
+        
     }
     
     // MARK: Shared instance
@@ -216,7 +265,7 @@ class PClient:NSObject
         }
         return Singleton.sharedInstance
     }
-
-
-
+    
+    
+    
 }

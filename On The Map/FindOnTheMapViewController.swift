@@ -175,8 +175,7 @@ class FindOnTheMapViewController:UIViewController,MKMapViewDelegate,UITextFieldD
     
     @IBAction func cancelButtonPressed(sender: UIBarButtonItem) {
         
-        let viewController=self.storyboard?.instantiateViewControllerWithIdentifier("TabBarVC") as! UITabBarController
-        presentViewController(viewController, animated: true, completion: nil)
+       dismissViewControllerAnimated(true, completion: nil)
     }
     
     func postLink(alreadyPosted:Bool)-> Void

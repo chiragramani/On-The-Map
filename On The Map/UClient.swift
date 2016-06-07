@@ -20,17 +20,17 @@ class UClient:NSObject
     var firstName: String? = nil
     var lastName: String? = nil
     var publicUserData: [String: AnyObject]?
-
+    
     
     override init() {
         super.init()
-}
+    }
     
     func taskForGETMethod(method: String, parameters: [String: AnyObject], completionHandlerForGet: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
         // Build the URL and configure the request
         let request = NSMutableURLRequest(URL: urlFromParameters(parameters, withPathExtention: method))
-               
+        
         // Make the request
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
             
@@ -69,7 +69,7 @@ class UClient:NSObject
         return task
     }
     
-        // MARK: Post
+    // MARK: Post
     
     func taskForPOSTMethod(method: String,  parameters: [String: AnyObject], jsonBody: String, completionHandlerForPOST: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
@@ -84,7 +84,6 @@ class UClient:NSObject
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
             
             func sendError(error: String) {
-                print("\(error)\n")
                 let userInfo = [NSLocalizedDescriptionKey: error]
                 completionHandlerForPOST(result: nil, error: NSError(domain: "taskForPOSTMethod", code: 1, userInfo: userInfo))
                 
@@ -92,7 +91,19 @@ class UClient:NSObject
             
             // GUARD: Was there an error?
             guard (error == nil) else {
-                sendError("There was an error with your request: \(error)")
+                if(error!.code==(-1009))
+                {
+                    sendError("The Internet connection appears to be offline")
+                }
+                else
+                {
+                    sendError("There was an error with your request: \(error)")
+                }
+                return
+            }
+            
+            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                sendError("Invalid credentials entered")
                 return
             }
             
@@ -113,7 +124,7 @@ class UClient:NSObject
         return task
     }
     
-       // Substitute the key for the value that is contained within the method name
+    // Substitute the key for the value that is contained within the method name
     func subtituteKeyInMethod(method: String, key: String, value: String) -> String? {
         if method.rangeOfString("{\(key)}") != nil {
             return method.stringByReplacingOccurrencesOfString("{\(key)}", withString: value)
@@ -155,12 +166,12 @@ class UClient:NSObject
         return components.URL!
     }
     
-        class func sharedInstance() -> UClient {
+    class func sharedInstance() -> UClient {
         struct Singleton {
             static var sharedInstance = UClient()
         }
         return Singleton.sharedInstance
     }
-
+    
 }
 

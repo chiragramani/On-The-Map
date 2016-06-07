@@ -12,8 +12,10 @@ import UIKit
 extension PClient
 {
     
-   
     func getLocationInfoFromParse(completionHandlerForGetLocationFromParse:(success: Bool, errorString: String?) -> Void) {
+        
+        
+        
         
         let parameters = [PClient.parameterKeys.Limit: PClient.paramaterValues.ReturnObjectsCount,
                           PClient.parameterKeys.Order: "-\(PClient.paramaterValues.UpdatedAt)"]
@@ -21,13 +23,14 @@ extension PClient
         taskForGETMethod(PClient.Methods.Locations, parameters: parameters) { (results, error) in
             
             if let error = error {
-                // TODO: user alert
-                print(error.localizedDescription)
+                completionHandlerForGetLocationFromParse(success: false, errorString: error.localizedDescription)
+                
             } else {
                 
                 
-               if let results = results[PClient.JSONResponseKeys.results] as? [[String: AnyObject]] {
-                    PClient.sharedInstance().locations = InfoModel.buildInfoModel(results)
+                if let results = results[PClient.JSONResponseKeys.results] as? [[String: AnyObject]] {
+                    let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                    delegate.locations = InfoModel.buildInfoModel(results)
                     completionHandlerForGetLocationFromParse(success: true, errorString: nil)
                 } else {
                     completionHandlerForGetLocationFromParse(success: false, errorString: "Could not parse data")
@@ -36,7 +39,7 @@ extension PClient
             }
         }
     }
-
+    
     
     func postStudentLocation(mediaURL: String, completionHandlerForPostStudentLocation: (success: Bool?, errorString: String?) -> Void) {
         
@@ -64,13 +67,20 @@ extension PClient
         let parameters = [String: AnyObject]()
         var mutableMethod: String = PClient.Methods.UpdateLocations
         mutableMethod = substituteKeyInMethod(mutableMethod, key: "objectId", value: PClient.sharedInstance().objectId!)!
-               let jsonBody="{\"\(PClient.JSONRequestBodyKeys.UniqueKey)\": \"\(UClient.sharedInstance().userId!)\", \"firstName\": \"\(UClient.sharedInstance().firstName!)\", \"lastName\": \"\(UClient.sharedInstance().lastName!)\",\"mapString\": \"\(PClient.sharedInstance().mapString!)\", \"mediaURL\": \"\(mediaURL)\",\"latitude\": \(PClient.sharedInstance().latitude!), \"longitude\": \(PClient.sharedInstance().longitude!)}"
-                
+        let jsonBody="{\"\(PClient.JSONRequestBodyKeys.UniqueKey)\": \"\(UClient.sharedInstance().userId!)\", \"firstName\": \"\(UClient.sharedInstance().firstName!)\", \"lastName\": \"\(UClient.sharedInstance().lastName!)\",\"mapString\": \"\(PClient.sharedInstance().mapString!)\", \"mediaURL\": \"\(mediaURL)\",\"latitude\": \(PClient.sharedInstance().latitude!), \"longitude\": \(PClient.sharedInstance().longitude!)}"
+        
         taskForPUTMethod(mutableMethod, parameters: parameters, jsonBody: jsonBody) { (results, error) in
             
             if let error = error {
-                print("\(error.localizedDescription)")
+               if error.localizedDescription=="The Internet connection appears to be offline"
+               {
+                completionHandlerForUpdatetStudentLocation(success: false, errorString: "The Internet connection appears to be offline")
+                }
+                else
+               {
                 completionHandlerForUpdatetStudentLocation(success: false, errorString: "Could not update new location")
+                }
+                
             } else {
                 print(results)
                 completionHandlerForUpdatetStudentLocation(success: true, errorString: nil)
@@ -80,7 +90,7 @@ extension PClient
         
         
     }
-
+    
     func queryStudentLocation(completionHandlerForQueryStudentLocation: (success: Bool, errorString: String?) -> Void) {
         
         let query = "{\"\(PClient.JSONRequestBodyKeys.UniqueKey)\": \"\(UClient.sharedInstance().userId!)\"}"
@@ -105,7 +115,7 @@ extension PClient
                                     return
                                 }
                                 
-                                 PClient.sharedInstance().objectId = ID
+                                PClient.sharedInstance().objectId = ID
                                 
                             }
                             completionHandlerForQueryStudentLocation(success: false, errorString: "Posted")
@@ -123,8 +133,8 @@ extension PClient
             }
         }
     }
-
-
-
-
+    
+    
+    
+    
 }

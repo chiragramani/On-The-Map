@@ -10,7 +10,7 @@ import Foundation
 
 extension UClient
 {
-
+    
     func getSessionID(username: String, password: String, completionHandler: (success: Bool, errorString: String?) -> Void) {
         
         let parameters = [String: AnyObject]()
@@ -20,16 +20,15 @@ extension UClient
         taskForPOSTMethod(UClient.Methods.Session, parameters: parameters, jsonBody: jsonBody) { (results, error) in
             
             if let error = error {
+                
                 completionHandler(success: false, errorString: error.localizedDescription)
             } else {
                 print(results)
                 if let session = results[UClient.JSONresponseKeys.Account] as? [String: AnyObject] {
                     if let user = session[UClient.JSONresponseKeys.UserID] as? String {
                         UClient.sharedInstance().userId = user
-                       completionHandler(success: true, errorString: nil)
-                        
+                        completionHandler(success: true, errorString: nil)
                     }
-                    
                 } else {
                     completionHandler(success: false, errorString: "Cannot establish the session..Please try again!")
                 }
@@ -58,7 +57,7 @@ extension UClient
                     return
                 }
                 guard let firstName = userData["first_name"] as? String else {
-                   print("first name not available in response")
+                    print("first name not available in response")
                     return
                 }
                 guard let lastName = userData["last_name"] as? String else {
@@ -72,10 +71,10 @@ extension UClient
             }
         }
     }
-
+    
     func deleteSession(completionHandler: (success: Bool, errorString: String?) -> Void)
     {
-    
+        
         let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
         request.HTTPMethod = "DELETE"
         var xsrfCookie: NSHTTPCookie? = nil
@@ -92,22 +91,22 @@ extension UClient
                 
                 completionHandler(success: false,errorString: error?.localizedDescription)
             }
-        else
+            else
             {
                 // GUARD: Did we get a successful 2XX response?
                 guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
-                     completionHandler(success: false,errorString: "Your request returned a status code other than 2xx!")
+                    completionHandler(success: false,errorString: "Your request returned a status code other than 2xx!")
                     return
                 }
                 completionHandler(success: true,errorString: nil)
-
-            
+                
+                
             }
-        
+            
         }
         task.resume()
-    
+        
     }
-
-
+    
+    
 }

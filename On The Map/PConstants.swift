@@ -58,9 +58,9 @@ extension PClient
         static let Order = "order"
     }
     
-   
+    
     struct paramaterValues {
-        static let UpdatedAt = "updatedAt"  
+        static let UpdatedAt = "updatedAt"
         static let ReturnObjectsCount = "100"
     }
     
