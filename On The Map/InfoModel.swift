@@ -11,7 +11,7 @@ import Foundation
 struct InfoModel
 {
 
-    let uniqueKey:String
+    let uniqueKey:String?
     let firstName:String
     let lastName:String
     let latitude:Double
@@ -21,7 +21,7 @@ struct InfoModel
     let updatedAt: String
     
     init(dictionary: [String: AnyObject]) {
-        uniqueKey = dictionary[PClient.JSONResponseKeys.uniqueKey] as! String
+        uniqueKey = dictionary[PClient.JSONResponseKeys.uniqueKey] as? String
         firstName = dictionary[PClient.JSONResponseKeys.firstName] as! String
         lastName = dictionary[PClient.JSONResponseKeys.lastName] as! String
         latitude = dictionary[PClient.JSONResponseKeys.latitude] as! Double
