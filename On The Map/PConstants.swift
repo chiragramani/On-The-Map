@@ -11,15 +11,15 @@ extension PClient
 {
     struct Constants {
         static let ApiScheme = "https"
-        static let ApiHost = "api.parse.com"
-        static let ApiPath = "/1"
+        static let ApiHost = "parse.udacity.com"
+        static let ApiPath = ""
         static let RestApiKey = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
         static let ApplicationId = "QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr"
     }
     
     struct Methods {
-        static let Locations = "/classes/StudentLocation"
-        static let UpdateLocations = "/classes/StudentLocation/{objectId}"
+        static let Locations = "/parse/classes/StudentLocation"
+        static let UpdateLocations = "/parse/classes/StudentLocation/{objectId}"
     }
     
     struct HeaderFields {
