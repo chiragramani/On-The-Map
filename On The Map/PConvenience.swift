@@ -44,7 +44,7 @@ extension PClient
     func postStudentLocation(mediaURL: String, completionHandlerForPostStudentLocation: (success: Bool?, errorString: String?) -> Void) {
         
         let parameters = [String: AnyObject]()
-        
+        /*Need to make code more robust so that even in unique object key is not present,it shouldn't throw an error */
         let jsonBody = "{\"\(PClient.JSONRequestBodyKeys.UniqueKey)\": \"\(UClient.sharedInstance().userId!)\", \"\(PClient.JSONRequestBodyKeys.FirstName)\": \"\(UClient.sharedInstance().firstName!)\", \"\(PClient.JSONRequestBodyKeys.LastName)\": \"\(UClient.sharedInstance().lastName!)\",\"\(PClient.JSONRequestBodyKeys.MapString)\": \"\(self.mapString!)\", \"\(PClient.JSONRequestBodyKeys.MediaURL)\": \"\(self.mediaURL!)\",\"\(PClient.JSONRequestBodyKeys.Latitude)\": \(self.latitude!), \"\(PClient.JSONRequestBodyKeys.Longitude)\": \(self.longitude!)}"
         
         taskForPOSTMethod(PClient.Methods.Locations, parameters: parameters, jsonBody: jsonBody) { (results, error) in
